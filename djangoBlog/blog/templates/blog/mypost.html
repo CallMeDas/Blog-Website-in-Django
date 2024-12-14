@@ -1,3 +1,4 @@
+
 {% extends 'blog/base.html' %}
 
 {% block content %}
@@ -36,9 +37,9 @@
 
     </nav>
 
-  
 
     <div class="container custom-container" style="max-width: 1350px; ">
+        <h1>My Posts</h1>
         {% for post in posts %}
         <article class="media content-section">
 
@@ -49,7 +50,7 @@
                     <hr style="clear:both;" />
 
                 </div>
-                <h3></h3>
+                <h3></h3> 
                 <p class="article-content">{{post.content}}</p>
                 <br><br>
             </div>
@@ -57,8 +58,5 @@
         {% endfor %}
         
     </div>
-
-</div>
-
 
 {% endblock %}
