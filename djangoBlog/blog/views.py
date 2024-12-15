@@ -48,8 +48,8 @@ def home(request):
 def newPost(request):
     if request.method == 'POST':
         title = request.POST.get('title')
-        context = request.POST.get('context')
-        npost = models.posts(title=title, context= context, author=request.user)
+        content = request.POST.get('content')
+        npost = models.posts(title=title, content= content, author=request.user)
         npost.save()
         return redirect('/home')
     return render (request, 'newpost.html')
