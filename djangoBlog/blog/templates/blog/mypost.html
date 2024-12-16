@@ -21,13 +21,14 @@
 
             </ul>
             <form class="form-inline my-2 my-lg-0" style="margin-left: 80%;">
-                <p style="margin-right: 50px ; font-size: 20px;">@{{request.user.username}}</p>
+                <p style="margin-right: 50px ; font-size: 20px;">@{{request.user.username|capfirst}}</p>
                 <div class="dropdown" style="display: flex;">
                     <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Profile
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/home">Home</a>
                         <a class="dropdown-item" href="/newpost">New Post</a>
                         <a class="dropdown-item" href="/mypost">My Posts</a>
                         <a class="dropdown-item" href="/signout">Sign Out</a>
@@ -41,7 +42,7 @@
 
     <div class="container custom-container" style="max-width: 1350px; ">
         <h1>My Posts</h1>
-        {% for post in posts %}
+        {% for post in post %}
         <article class="media content-section">
 
             <div class="media-body" style="border: 1px solid black; padding: 23px; margin-bottom: 10px;">
@@ -56,6 +57,8 @@
                 <br><br>
             </div>
         </article>
+        {% empty %}
+  <p>No posts found.</p>
         {% endfor %}
         
     </div>

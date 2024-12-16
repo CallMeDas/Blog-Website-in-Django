@@ -55,10 +55,11 @@ def newPost(request):
     return render (request, 'newpost.html')
 
 def myPost(request):
-    context = {'post': posts.objects.filter(author = request.user)}
+    context = {'post': posts.objects.filter(author=request.user)}
     return render(request, 'mypost.html', context)
 
 
 def signOut(request):
+    
     logout(request)
     return redirect ('/home')

@@ -23,17 +23,22 @@
                 
                 
                 <div class="dropdown" style="display: flex;">
-                    <p style="margin-right: 50px ; font-size: 20px;">@{{request.user.username}}</p>
-                    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Profile
-                    </button>
-                    
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="/newpost">New Post</a>
-                        <a class="dropdown-item" href="/mypost">My Posts</a>
-                        <a class="dropdown-item" href="/signout">Sign Out</a>
-                    </div>
+                    {% if request.user.is_authenticated %}
+            <p style="margin-right: 50px; font-size: 20px;">@{{request.user.username|capfirst}}</p>
+            <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Profile
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/home">Home</a>
+                <a class="dropdown-item" href="/newpost">New Post</a>
+                <a class="dropdown-item" href="/mypost">My Posts</a>
+                <a class="dropdown-item" href="/signout">Sign Out</a>
+            </div>
+        {% else %}
+            <a class="btn btn-outline-primary" style="margin-right: 5px;" href="/loginn">Log In</a>
+            <a class="btn btn-outline-primary" href="/">Sign In</a>
+        {% endif %}
                 </div>
             </form>
         </div>
