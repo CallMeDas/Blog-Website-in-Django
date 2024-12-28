@@ -5,8 +5,6 @@ from . import models
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login , logout
 
-# Create your views here.
-
 def test (request):
     return HttpResponse('welcome')
 
@@ -22,7 +20,7 @@ def loginn(request):
         else:
             return render(request, 'loginn.html',{'error': 'Incorrect Username or Password.'})
     
-        
+
     return render(request, 'loginn.html')
 
 def signin(request):
